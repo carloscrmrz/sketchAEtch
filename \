@@ -1,0 +1,32 @@
+const BODY = document.querySelector('body');
+const BOARD = document.querySelector('.board');
+const RESET = document.querySelector('.reset');
+
+
+createDiv(16);
+
+const PIXELS = document.querySelectorAll('.board-square');
+
+
+PIXELS.forEach(pix => {pix.addEventListener("mouseenter", function(e) {
+		e.target.classList.add("black");
+			}, 'false');
+});
+
+RESET.addEventListener('click', () => {removeColor(PIXELS)});
+
+
+function createDiv(num) {
+	for (let i = 0; i < num; i++) {
+		var div = document.createElement('div');
+		div.className = 'board-square';
+		BOARD.appendChild(div);
+	}
+}
+
+function removeColor(elementList) {
+	elementList.forEach(element => {element.classList.remove("black")});
+}
+
+
+
