@@ -59,4 +59,29 @@ input {
 
 .black {
 	background-color: black;
+	height: 36px;
+	width: 36px;
+	border: solid #FAF2EB;
+}
+
+.rainbow {
+	height: 36px;
+	width: 36px;
+	border: solid #FAF2EB;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ff0000+5,ff7f00+16,ffff00+33,ffff00+33,00ff00+45,0000ff+62,4b0082+75,4b0082+75,9400d3+93 */
+	background: rgb(255,0,0); /* Old browsers */
+	background: -moz-linear-gradient(-45deg,  rgba(255,0,0,1) 5%, rgba(255,127,0,1) 16%, rgba(255,255,0,1) 33%, rgba(255,255,0,1) 33%, rgba(0,255,0,1) 45%, rgba(0,0,255,1) 62%, rgba(75,0,130,1) 75%, rgba(75,0,130,1) 75%, rgba(148,0,211,1) 93%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg,  rgba(255,0,0,1) 5%,rgba(255,127,0,1) 16%,rgba(255,255,0,1) 33%,rgba(255,255,0,1) 33%,rgba(0,255,0,1) 45%,rgba(0,0,255,1) 62%,rgba(75,0,130,1) 75%,rgba(75,0,130,1) 75%,rgba(148,0,211,1) 93%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg,  rgba(255,0,0,1) 5%,rgba(255,127,0,1) 16%,rgba(255,255,0,1) 33%,rgba(255,255,0,1) 33%,rgba(0,255,0,1) 45%,rgba(0,0,255,1) 62%,rgba(75,0,130,1) 75%,rgba(75,0,130,1) 75%,rgba(148,0,211,1) 93%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff0000', endColorstr='#9400d3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+}
+
+.colors {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: -400px;
+	right: 50px;
+	width: 40px;
 }

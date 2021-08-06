@@ -2,16 +2,32 @@ const BODY = document.querySelector('body');
 const BOARD = document.querySelector('.board');
 const RESET = document.querySelector('.reset');
 const SIZE = document.querySelector('input');
+const RAINBOW = document.querySelector('.rainbow');
+const BLACK = document.querySelector('.black');
+
 
 createDiv(16);
+
+let currentColor = 'colorBlack';
 
 let PIXELS = document.querySelectorAll('.board-square');
 
 SIZE.addEventListener('change', changeGridSize);
 
-PIXELS.forEach(pix => {pix.addEventListener("mouseenter", function(e) {
-		e.target.classList.add("black");
-			}, 'false');
+PIXELS.forEach(pix => {pix.addEventListener("mouseenter", colorBlack, 'false');
+});
+
+RAINBOW.addEventListener('click', () => {
+		PIXELS.forEach(pix => {pix.removeEventListener('mouseenter', colorBlack, 'false');
+			pix.addEventListener('mouseenter', colorRainbow, 'false');
+		});
+	
+});
+
+BLACK.addEventListener('click', () => {
+		PIXELS.forEach(pix => {pix.removeEventListener('mouseenter', colorRainbow, 'false');
+			pix.addEventListener('mouseenter', colorBlack, 'false');
+		});
 });
 
 RESET.addEventListener('click', () => {removeColor(PIXELS)});
@@ -26,7 +42,7 @@ function createDiv(num) {
 }
 
 function removeColor(elementList) {
-	elementList.forEach(element => {element.classList.remove("black")});
+	elementList.forEach(element => {element.style.backgroundColor = ''});
 }
 
 function changeGridSize(e) {
@@ -42,8 +58,24 @@ function changeGridSize(e) {
 
 	createDiv(num*num);
 	PIXELS = document.querySelectorAll('.board-square');
-	PIXELS.forEach(pix => {pix.addEventListener("mouseenter", function(e) {
-			e.target.classList.add("black");
-				}, 'false');
+	PIXELS.forEach(pix => {pix.addEventListener("mouseenter", colorBlack, 'false');
 	});
 }
+
+function colorBlack(e) {
+	e.target.style.backgroundColor = 'black';
+}
+
+function colorRainbow(e) {
+	e.target.style.backgroundColor = randomRGBGen();
+}
+
+function colorGreyScale(e) {
+//	e.target.style.backgroundColor = // random greyscale gen
+}
+
+function randomRGBGen() { 
+	return `rgba(${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)}, ${Math.round(Math.random()*255)}, ${Math.random().toFixed(1)})`
+}
+
+
